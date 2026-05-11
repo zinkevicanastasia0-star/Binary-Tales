@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+            Что делать при взломе? | Безопасный Аккаунт
+        
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Боковое меню (сайдбар) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/BinaryTales.svg" width="202" height="40">
+            <p class="sidebar-description">Рекомендации по безопасности</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/howto">Инструкция</a></li>
+                <li><a href="/attacks">Виды атак</a></li>
+                <li class="nav-divider">Социальные сети</li>
+                <li><a href="/social/vk">ВКонтакте -</a></li>
+                <li><a href="/social/telegram">Telegram</a></li>
+                <li><a href="/social/ok">Одноклассники</a></li>
+                <li class="nav-divider">Инструменты</li>
+                <li><a href="/checklist">Чек-лист</a></li>
+                <li><a href="/password-generator">Генератор паролей</a></li>
+                <li><a href="/infographic">Инфографика</a></li>
+                <li><a href="/crisis">При взломе</a></li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p>Binary Tales</p>
+        </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <article class="content-wrapper">
+            
+                <h1 id="chto-delat-pri-vzlome">Что делать при взломе?</h1>
+<p>Страница в разработке. Здесь будет инструкция, как действовать при взломе.</p>
+
+            
+        </article>
+    </main>
+
+    <!-- Кнопка для мобильной версии (открыть/закрыть меню) -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+            
+            // Закрываем меню при клике на ссылку (на телефонах)
+            const links = sidebar.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

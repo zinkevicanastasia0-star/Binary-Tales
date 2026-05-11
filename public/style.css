@@ -1,0 +1,485 @@
+/* Простые стили для временного оформления */
+body {
+    font-family: Arial, sans-serif;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+header {
+    background: #1E6F9F;
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f4f6f9;
+    border-radius: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* Дополнительные стили для страниц соцсетей */
+
+.social-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-header {
+    background: linear-gradient(135deg, #1E6F9F 0%, #2c3e50 100%);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.social-header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+.social-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.social-content h2 {
+    color: #1E6F9F;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.social-content h3 {
+    color: #2c3e50;
+    margin-top: 20px;
+}
+
+.social-content ul, 
+.social-content ol {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.social-content li {
+    margin: 8px 0;
+}
+
+.social-content img {
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.social-content .warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.social-content .tip {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.back-link {
+    display: inline-block;
+    background: #6c757d;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.back-link:hover {
+    background: #5a6268;
+}
+
+.social-navigation {
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* Планшеты (ширина от 768px до 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        padding: 15px;
+    }
+    nav ul {
+        gap: 15px;
+        justify-content: center;
+    }
+    main {
+        padding: 15px;
+    }
+}
+
+/* Телефоны (ширина меньше 768px) */
+@media (max-width: 767px) {
+    body {
+        padding: 10px;
+    }
+    /* Шапка и меню */
+    header {
+        padding: 15px;
+        text-align: center;
+    }
+    header h1 {
+        font-size: 1.5em;
+        margin-bottom: 15px;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+    nav a {
+        display: block;
+        padding: 8px 15px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 8px;
+    }
+    
+    /* Основной контент */
+    main {
+        padding: 15px;
+    }
+    main h1 {
+        font-size: 1.6em;
+    }
+    main h2 {
+        font-size: 1.3em;
+    }
+    
+    /* Изображения на телефонах */
+    img {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Подвал */
+    footer {
+        padding: 15px;
+        font-size: 0.9em;
+    }
+    
+    /* Меню навигации внутри страниц (хлебные крошки и ссылки) */
+    .social-navigation {
+        text-align: center;
+    }
+    .back-link {
+        display: inline-block;
+        margin-bottom: 10px;
+    }
+}
+
+/* Очень маленькие телефоны (ширина меньше 480px) */
+@media (max-width: 480px) {
+    body {
+        padding: 5px;
+    }
+    
+    header h1 {
+        font-size: 1.2em;
+    }
+    
+    main h1 {
+        font-size: 1.3em;
+    }
+    
+    main h2 {
+        font-size: 1.1em;
+    }
+    
+    .social-header h1 {
+        font-size: 1.3em;
+    }
+}
+
+
+/* ============================================ */
+/* БОКОВОЕ МЕНЮ (САЙДБАР) - ОСНОВНЫЕ СТИЛИ */
+/* ============================================ */
+
+/* Общие настройки */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f5f7fa;
+    display: flex;
+    min-height: 100vh;
+}
+
+/* ===== БОКОВОЕ МЕНЮ ===== */
+.sidebar {
+    width: 280px;
+    background: linear-gradient(180deg, #1E6F9F 0%, #0d4a6e 100%);
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+    padding: 30px 20px;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+    text-align: center;
+}
+
+.sidebar-header h2 {
+    font-size: 1.5em;
+    margin-bottom: 8px;
+}
+
+.sidebar-description {
+    font-size: 0.85em;
+    opacity: 0.8;
+}
+
+.sidebar-nav {
+    flex: 1;
+    padding: 20px 0;
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-nav li {
+    margin: 0;
+}
+
+.sidebar-nav li a {
+    display: block;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    transition: all 0.3s;
+    font-size: 1em;
+}
+
+.sidebar-nav li a:hover {
+    background: rgba(255,255,255,0.2);
+    padding-left: 32px;
+}
+
+.nav-divider {
+    padding: 15px 25px 8px 25px;
+    font-size: 0.75em;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: 10px;
+}
+
+.nav-divider:first-of-type {
+    border-top: none;
+    margin-top: 0;
+}
+
+.sidebar-footer {
+    padding: 20px;
+    text-align: center;
+    font-size: 0.75em;
+    border-top: 1px solid rgba(255,255,255,0.2);
+    opacity: 0.7;
+}
+
+/* ===== ОСНОВНОЙ КОНТЕНТ ===== */
+.main-content {
+    margin-left: 280px;
+    flex: 1;
+    padding: 40px;
+    min-height: 100vh;
+}
+
+.content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+/* Стили для контента внутри страниц */
+.content-wrapper h1 {
+    font-size: 2.2em;
+    color: #1E6F9F;
+    margin-bottom: 20px;
+    border-bottom: 3px solid #1E6F9F;
+    padding-bottom: 10px;
+}
+
+.content-wrapper h2 {
+    font-size: 1.6em;
+    color: #2c3e50;
+    margin: 30px 0 15px 0;
+}
+
+.content-wrapper h3 {
+    font-size: 1.3em;
+    color: #2c3e50;
+    margin: 20px 0 10px 0;
+}
+
+.content-wrapper p {
+    line-height: 1.7;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.content-wrapper ul, 
+.content-wrapper ol {
+    margin: 15px 0 15px 25px;
+    line-height: 1.7;
+}
+
+.content-wrapper li {
+    margin: 8px 0;
+}
+
+.content-wrapper img {
+    max-width: 100%;
+    border-radius: 12px;
+    margin: 20px 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* ===== МОБИЛЬНАЯ ВЕРСИЯ ===== */
+.mobile-menu-toggle {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #1E6F9F;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 200;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+
+.mobile-menu-toggle:hover {
+    background: #0d4a6e;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+        width: 280px;
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+    
+    .content-wrapper {
+        padding: 25px;
+    }
+    
+    .content-wrapper h1 {
+        font-size: 1.6em;
+    }
+    
+    .content-wrapper h2 {
+        font-size: 1.3em;
+    }
+    
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 10px;
+    }
+    
+    .content-wrapper {
+        padding: 18px;
+    }
+    
+    .content-wrapper h1 {
+        font-size: 1.4em;
+    }
+}
+

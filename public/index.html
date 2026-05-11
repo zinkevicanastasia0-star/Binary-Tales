@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+            Безопасный Аккаунт | Безопасный Аккаунт
+        
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Боковое меню (сайдбар) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/BinaryTales.svg" width="202" height="40">
+            <p class="sidebar-description">Рекомендации по безопасности</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/howto">Инструкция</a></li>
+                <li><a href="/attacks">Виды атак</a></li>
+                <li class="nav-divider">Социальные сети</li>
+                <li><a href="/social/vk">ВКонтакте -</a></li>
+                <li><a href="/social/telegram">Telegram</a></li>
+                <li><a href="/social/ok">Одноклассники</a></li>
+                <li class="nav-divider">Инструменты</li>
+                <li><a href="/checklist">Чек-лист</a></li>
+                <li><a href="/password-generator">Генератор паролей</a></li>
+                <li><a href="/infographic">Инфографика</a></li>
+                <li><a href="/crisis">При взломе</a></li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p>Binary Tales</p>
+        </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <article class="content-wrapper">
+            
+                <h1 id="zashchiti-svoi-akkaunty-za-15-minut">Защити свои аккаунты за 15 минут</h1>
+<p>Простые и понятные инструкции для студентов. Никакого технического жаргона.</p>
+<h2 id="chto-vy-naidiote-na-etom-saite">Что вы найдёте на этом сайте</h2>
+<ul>
+<li><strong>Инструкции для соцсетей</strong> — пошаговые руководства для ВКонтакте, Telegram, Одноклассников</li>
+<li><strong>Интерактивный чек-лист</strong> — проверьте свою безопасность за 5 минут</li>
+<li><strong>Генератор паролей</strong> — создавайте надёжные пароли одним кликом</li>
+<li><strong>Инфографика</strong> — визуальные памятки по безопасности</li>
+</ul>
+<h2 id="tri-glavnykh-pravila-bezopasnosti">Три главных правила безопасности</h2>
+<h3 id="slozhnyi-parol">Сложный пароль</h3>
+<p>Используйте пароли длиной от 12 символов с буквами, цифрами и символами. Никогда не повторяйте один пароль на разных сайтах.</p>
+<h3 id="dvukhfaktornaia-autentifikatsiia">Двухфакторная аутентификация</h3>
+<p>Включите 2FA везде, где это возможно. Это защитит аккаунт даже если пароль украдут.</p>
+<h3 id="nastroiki-privatnosti">Настройки приватности</h3>
+<p>Регулярно проверяйте, кто видит ваши публикации и личную информацию.</p>
+<h2 id="vyberite-sotsial-nuiu-set-dlia-nachala">Выберите социальную сеть для начала</h2>
+<ul>
+<li><a href="/social/vk">ВКонтакте</a> — пошаговая инструкция по настройке безопасности</li>
+<li><a href="/social/telegram">Telegram</a> — защита мессенджера</li>
+<li><a href="/social/ok">Одноклассники</a> — настройки приватности и двухфакторка</li>
+</ul>
+
+            
+        </article>
+    </main>
+
+    <!-- Кнопка для мобильной версии (открыть/закрыть меню) -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+            
+            // Закрываем меню при клике на ссылку (на телефонах)
+            const links = sidebar.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+            Безопасность ВКонтакте | Безопасный Аккаунт
+        
+    </title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <!-- Боковое меню (сайдбар) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <img src="img/BinaryTales.svg" width="202" height="40">
+            <p class="sidebar-description">Рекомендации по безопасности</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/howto">Инструкция</a></li>
+                <li><a href="/attacks">Виды атак</a></li>
+                <li class="nav-divider">Социальные сети</li>
+                <li><a href="/social/vk">ВКонтакте -</a></li>
+                <li><a href="/social/telegram">Telegram</a></li>
+                <li><a href="/social/ok">Одноклассники</a></li>
+                <li class="nav-divider">Инструменты</li>
+                <li><a href="/checklist">Чек-лист</a></li>
+                <li><a href="/password-generator">Генератор паролей</a></li>
+                <li><a href="/infographic">Инфографика</a></li>
+                <li><a href="/crisis">При взломе</a></li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <p>Binary Tales</p>
+        </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <article class="content-wrapper">
+            
+                <h1 id="nastroiki-bezopasnosti-vkontakte">Настройки безопасности ВКонтакте</h1>
+<p>ВКонтакте — одна из самых популярных соцсетей в России, и она часто становится целью злоумышленников. Вот что нужно сделать, чтобы защитить аккаунт.</p>
+<h2 id="1-smenite-parol-na-slozhnyi">1. Смените пароль на сложный</h2>
+<p>Перейдите в <strong>Настройки → Безопасность → Сменить пароль</strong>.</p>
+<p>Пароль должен содержать не менее 12 символов, включая заглавные и строчные буквы, цифры и специальные символы.</p>
+<h2 id="2-vkliuchite-dvukhfaktornuiu-autentifikatsiiu">2. Включите двухфакторную аутентификацию</h2>
+<p>В том же разделе <strong>«Безопасность»</strong> найдите пункт <strong>«Подтверждение входа»</strong> и включите его.</p>
+<p>Лучший способ — использовать приложение-аутентификатор (Google Authenticator, Яндекс.Ключ).</p>
+<h2 id="3-prover-te-aktivnye-sessii">3. Проверьте активные сессии</h2>
+<p>В разделе <strong>«Безопасность»</strong> посмотрите список устройств, где выполнен вход. Если видите незнакомое — нажмите «Завершить».</p>
+
+            
+        </article>
+    </main>
+
+    <!-- Кнопка для мобильной версии (открыть/закрыть меню) -->
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+            
+            // Закрываем меню при клике на ссылку (на телефонах)
+            const links = sidebar.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>

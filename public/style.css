@@ -1,155 +1,21 @@
 /* Простые стили для временного оформления */
 body {
-    font-family: Arial, sans-serif;
+    background-image: url('/img/back.png');
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    font-family: "Tinos", "Times New Roman", serif;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
     line-height: 1.6;
 }
 
-header {
-    background: #1E6F9F;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    gap: 20px;
-    flex-wrap: wrap;
-}
-
-nav a {
-    color: white;
-    text-decoration: none;
-}
-
-nav a:hover {
-    text-decoration: underline;
-}
-
-main {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-footer {
-    text-align: center;
-    margin-top: 30px;
-    padding: 20px;
-    background: #f4f6f9;
-    border-radius: 10px;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-pre, code {
-    background: #f4f4f4;
-    padding: 10px;
-    border-radius: 5px;
-}
-
-/* Дополнительные стили для страниц соцсетей */
-
-.social-page {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.social-header {
-    background: linear-gradient(135deg, #1E6F9F 0%, #2c3e50 100%);
-    color: white;
-    padding: 40px 30px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-}
-
-.social-header h1 {
-    margin: 0;
-    font-size: 2.2em;
-}
-
-.social-content {
-    background: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-    margin-bottom: 30px;
-}
-
-.social-content h2 {
-    color: #1E6F9F;
-    border-bottom: 2px solid #e0e0e0;
-    padding-bottom: 10px;
-    margin-top: 30px;
-}
-
-.social-content h3 {
-    color: #2c3e50;
-    margin-top: 20px;
-}
-
-.social-content ul, 
-.social-content ol {
-    margin: 15px 0;
-    padding-left: 25px;
-}
-
-.social-content li {
-    margin: 8px 0;
-}
-
-.social-content img {
-    max-width: 100%;
-    border-radius: 10px;
-    border: 1px solid #ddd;
-    margin: 20px 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-
-.social-content .warning {
-    background: #fff3cd;
-    border-left: 4px solid #ffc107;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 8px;
-}
-
-.social-content .tip {
-    background: #d4edda;
-    border-left: 4px solid #28a745;
-    padding: 15px;
-    margin: 20px 0;
-    border-radius: 8px;
-}
-
-.back-link {
-    display: inline-block;
-    background: #6c757d;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: background 0.3s;
-}
-
-.back-link:hover {
-    background: #5a6268;
-}
-
-.social-navigation {
-    text-align: center;
-    margin: 30px 0;
-}
+/* ============================================ */
+/* АДАПТАЦИЯ САЙТА ПОД РАЗНЫЕ РАЗМЕРЫ ЭКРАНА */
+/* ============================================ */
 
 /* Планшеты (ширина от 768px до 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -214,7 +80,7 @@ pre, code {
         font-size: 0.9em;
     }
     
-    /* Меню навигации внутри страниц (хлебные крошки и ссылки) */
+    /* Меню навигации внутри страниц */
     .social-navigation {
         text-align: center;
     }
@@ -247,6 +113,161 @@ pre, code {
     }
 }
 
+/* ============================================ */
+       /* ОСНОВНЫЕ НАСТРОЙКИ И СТИЛИ */
+/* ============================================ */
+
+header {
+    background: rgba(241, 242, 251, 1);
+    color: rgba(54, 70, 96, 1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: rgba(54, 70, 96, 1);
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: rgba(54, 70, 96, 1);
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+main {
+    background: white;
+    padding: 20px;
+    border: 8px solid rgba(54, 70, 96, 1);
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(54, 70, 96, 1);
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px;
+    background: #f4f6f9;
+    color: rgba(54, 70, 96, 1);
+    border-radius: 10px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+pre, code {
+    background: #f4f4f4;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* ============================================ */
+/* ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ СТРАНИЦ СОЦСЕТЕЙ */
+/* ============================================ */
+
+.social-page {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-header {
+    background: white;
+    color: rgba(54, 70, 96, 1);
+    padding: 40px 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.social-header h1 {
+    margin: 0;
+    font-size: 2.2em;
+}
+
+.social-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.social-content h2 {
+    color: rgba(54, 70, 96, 1);
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.social-content h3 {
+    color: rgba(54, 70, 96, 1);
+    margin-top: 20px;
+}
+
+.social-content ul, 
+.social-content ol {
+    margin: 15px 0;
+    padding-left: 25px;
+}
+
+.social-content li {
+    margin: 8px 0;
+}
+
+.social-content img {
+    max-width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.social-content .warning {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.social-content .tip {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+}
+
+.back-link {
+    display: inline-block;
+    background: #6c757d;
+    color: rgba(54, 70, 96, 1);
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.back-link:hover {
+    background: #5a6268;
+}
+
+.social-navigation {
+    text-align: center;
+    margin: 30px 0;
+}
 
 /* ============================================ */
 /* БОКОВОЕ МЕНЮ (САЙДБАР) - ОСНОВНЫЕ СТИЛИ */
@@ -260,8 +281,8 @@ pre, code {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f5f7fa;
+    font-family: "Tinos", "Times New Roman", serif;
+    color: rgba(54, 70, 96, 1);
     display: flex;
     min-height: 100vh;
 }
@@ -269,8 +290,10 @@ body {
 /* ===== БОКОВОЕ МЕНЮ ===== */
 .sidebar {
     width: 280px;
-    background: linear-gradient(180deg, #1E6F9F 0%, #0d4a6e 100%);
-    color: white;
+    background: rgba(255, 255, 255, 1);
+    color: rgba(54, 70, 96, 1);
+    border: 8px solid rgba(54, 70, 96, 1);
+    border-radius: 30px;
     position: fixed;
     top: 0;
     left: 0;
@@ -280,6 +303,12 @@ body {
     flex-direction: column;
     z-index: 100;
     transition: transform 0.3s ease;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.sidebar::-webkit-scrollbar {
+    display: none;
 }
 
 .sidebar-header {
@@ -314,12 +343,24 @@ body {
 }
 
 .sidebar-nav li a {
+    font-weight: 700;
     display: block;
     padding: 12px 25px;
-    color: white;
+    position: relative;
+    color: rgba(54, 70, 96, 1);
     text-decoration: none;
     transition: all 0.3s;
-    font-size: 1em;
+    font-size: 1.125rem;
+}
+
+.sidebar-nav li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20px;
+    right: 20px;
+    height: 2px;
+    background: rgba(54, 70, 96, 0.6);
 }
 
 .sidebar-nav li a:hover {
@@ -329,7 +370,8 @@ body {
 
 .nav-divider {
     padding: 15px 25px 8px 25px;
-    font-size: 0.75em;
+    font-size: 0.85rem;
+    font-weight: 600; 
     text-transform: uppercase;
     letter-spacing: 1px;
     opacity: 0.7;
@@ -345,7 +387,7 @@ body {
 .sidebar-footer {
     padding: 20px;
     text-align: center;
-    font-size: 0.75em;
+    font-size: 0.85rem;
     border-top: 1px solid rgba(255,255,255,0.2);
     opacity: 0.7;
 }
@@ -361,8 +403,9 @@ body {
 .content-wrapper {
     max-width: 900px;
     margin: 0 auto;
-    background: white;
+    background: rgba(255, 255, 255, 0.9);
     border-radius: 16px;
+    backdrop-filter: blur(2px);
     padding: 40px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
@@ -370,27 +413,27 @@ body {
 /* Стили для контента внутри страниц */
 .content-wrapper h1 {
     font-size: 2.2em;
-    color: #1E6F9F;
+    color: rgba(54, 70, 96, 1);
     margin-bottom: 20px;
-    border-bottom: 3px solid #1E6F9F;
+    border-bottom: 3px solid rgba(54, 70, 96, 1);
     padding-bottom: 10px;
 }
 
 .content-wrapper h2 {
     font-size: 1.6em;
-    color: #2c3e50;
+    color: rgba(54, 70, 96, 1);
     margin: 30px 0 15px 0;
 }
 
 .content-wrapper h3 {
     font-size: 1.3em;
-    color: #2c3e50;
+    color: rgba(54, 70, 96, 1);
     margin: 20px 0 10px 0;
 }
 
 .content-wrapper p {
     line-height: 1.7;
-    color: #333;
+    color: rgba(54, 70, 96, 1);
     margin-bottom: 15px;
 }
 
@@ -419,8 +462,8 @@ body {
     right: 20px;
     width: 50px;
     height: 50px;
-    background: #1E6F9F;
-    color: white;
+    background: white;
+    color: rgba(54, 70, 96, 1);
     border: none;
     border-radius: 50%;
     font-size: 24px;
@@ -431,7 +474,7 @@ body {
 }
 
 .mobile-menu-toggle:hover {
-    background: #0d4a6e;
+    background: white;
     transform: scale(1.05);
 }
 
@@ -481,5 +524,14 @@ body {
     .content-wrapper h1 {
         font-size: 1.4em;
     }
+}
+
+.sidebar-logo {
+    display: block;
+    max-width: 80%;
+    height: auto;
+    margin: 0 auto 15px auto;
+    border-radius: 12px;
+    padding: 8px;
 }
 

@@ -13,12 +13,17 @@
         {% endif %}
     </title>
     <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Боковое меню (сайдбар) -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <img src="img/BinaryTales.svg" width="202" height="40">
+            <a href="/">
+                <img class="sidebar-logo" src="/img/BinaryTales.svg" width="210" height="47" alt="Логотип">
+            </a>
             <p class="sidebar-description">Рекомендации по безопасности</p>
         </div>
         
@@ -28,16 +33,18 @@
                 <li><a href="/howto">Инструкция</a></li>
                 <li><a href="/attacks">Виды атак</a></li>
                 <li class="nav-divider">Социальные сети</li>
-                <li><a href="/social/vk">ВКонтакте -</a></li>
-                <li><a href="/social/telegram">Telegram</a></li>
+                <li><a href="/social/vk">ВКонтакте</a></li>
+                <li><a href="/social/tg">Telegram</a></li>
                 <li><a href="/social/ok">Одноклассники</a></li>
                 <li class="nav-divider">Инструменты</li>
                 <li><a href="/checklist">Чек-лист</a></li>
-                <li><a href="/password-generator">Генератор паролей</a></li>
+                <li><a href="/password">Генератор паролей</a></li>
                 <li><a href="/infographic">Инфографика</a></li>
                 <li><a href="/crisis">При взломе</a></li>
             </ul>
         </nav>
+
+        <img class="bubble" src="/img/bubbles.svg" width="250" height="235">
         
         <div class="sidebar-footer">
             <p>Binary Tales</p>

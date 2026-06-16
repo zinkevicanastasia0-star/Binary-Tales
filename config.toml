@@ -1,0 +1,29 @@
+# config.toml — минимальный рабочий конфиг для Zola
+
+base_url = "/"
+title = "Безопасный Аккаунт"
+description = "Простые рекомендации по защите аккаунтов в социальных сетях"
+default_language = "ru"
+
+compile_sass = true
+build_search_index = true
+minify_html = false
+
+
+# ВСЕ ПОЛЬЗОВАТЕЛЬСКИЕ НАСТРОЙКИ — ТОЛЬКО ВНУТРИ [extra]
+[extra]
+
+# Пункты меню (сохраняем то, что хотели)
+menu_items = [
+    { name = "Главная", url = "/" },
+    { name = "Инструкция", url = "/howto" },
+    { name = "Виды атак", url = "/attacks" },
+    { name = "Соцсети", children = [
+        { name = "ВКонтакте", url = "/social/vk" },
+        { name = "Telegram", url = "/social/tg" },
+        { name = "Одноклассники", url = "/social/ok" },
+    ]},
+    { name = "Чек-лист", url = "/checklist" },
+    { name = "Генератор паролей", url = "/password" },
+    { name = "При взломе", url = "/crisis" },
+]

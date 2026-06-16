@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        
+            Проверка ссылок | Безопасный Аккаунт
+        
+    </title>
+
+    <link rel="icon" type="image/svg+xml" href="/img/Vector.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/Vector.png">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Боковое меню (сайдбар) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="/">
+                <img class="sidebar-logo" src="/img/BinaryTales.svg" width="210" height="48" alt="Логотип">
+            </a>
+            <p class="sidebar-description">Рекомендации по безопасности</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/howto">Инструкция</a></li>
+                <li><a href="/attacks">Виды атак</a></li>
+                <li class="nav-divider">Социальные сети</li>
+                <li><a href="/social/vk">ВКонтакте</a></li>
+                <li><a href="/social/tg">Telegram</a></li>
+                <li><a href="/social/ok">Одноклассники</a></li>
+                <li class="nav-divider">Инструменты</li>
+                <li><a href="/checklist">Чек-лист</a></li>
+                <li><a href="/scam-chat">Тренажёр ответов</a></li>
+                <li><a href="/link-checker">Проверка ссылок</a></li>
+                <li><a href="/truth-or-myth">Правда или миф?</a></li>
+                <li><a href="/password">Генератор паролей</a></li>
+                <li><a href="/crisis">При взломе</a></li>
+            </ul>
+        </nav>
+
+        <img class="bubble" src="/img/bubbles.svg" width="250" height="235">
+        
+        <div class="sidebar-footer">
+            <p>Binary Tales</p>
+        </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <article class="content-wrapper">
+            <h1>Проверка подозрительных ссылок</h1>
+            <p class="checklist-description">
+                Тренажёр показывает ссылку как текст. 
+                Решите, выглядит ли она безопасной или подозрительной, а затем посмотрите объяснение.
+            </p>
+            <section class="link-checker" aria-label="Проверка подозрительных ссылок">
+                <div class="link-checker-summary">
+                    <div>
+                    <p class="link-checker-kicker">Прогресс</p>
+                    <strong id="linkQuestionCounter">1 из 20</strong>
+                    </div>
+                    <div class="link-checker-score" id="linkCheckerScore">Верных ответов: 0</div>
+                </div>
+
+                <div class="link-progress" aria-hidden="true">
+                    <div class="link-progress-bar" id="linkProgressBar"></div>
+                </div>
+
+                <div class="link-card">
+                    <p class="link-card-label">Ссылка для проверки</p>
+                    <code id="linkText">Загрузка...</code>
+                </div>
+
+                <div class="link-choice-row" id="linkChoiceRow">
+                    <button type="button" data-choice="safe">Безопасная</button>
+                    <button type="button" data-choice="danger">Подозрительная</button>
+                </div>
+
+                <div class="link-feedback" id="linkFeedback" aria-live="polite"></div>
+
+                <div class="link-actions">
+                    <button type="button" id="nextLinkButton">Следующая ссылка</button>
+                    <button type="button" class="secondary-button" id="restartLinksButton">Начать заново</button>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!-- Кнопка для мобильной версии (открыть/закрыть меню) -->
+    <div class="floating-controls" aria-label="Быстрые действия">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
+            <img id="themeToggleIcon" src="/img/light-button.svg" width="36" height="36" alt="">
+        </button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Открыть меню">
+            <img id="menuToggleIcon" src="/img/menu-light.svg" width="24" height="24" alt="Меню">
+        </button>
+    </div>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах + сохранение позиции скролла
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const STORAGE_KEY_SCROLL = 'sidebar-scroll-position';
+        
+        // Функция сохранения позиции скролла
+        function saveSidebarScroll() {
+            if (sidebar) {
+                localStorage.setItem(STORAGE_KEY_SCROLL, sidebar.scrollTop);
+            }
+        }
+        
+        // Функция восстановления позиции скролла
+        function restoreSidebarScroll() {
+            if (sidebar) {
+                const savedPosition = localStorage.getItem(STORAGE_KEY_SCROLL);
+                if (savedPosition !== null) {
+                    sidebar.scrollTop = parseInt(savedPosition, 10);
+                }
+            }
+        }
+        
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+            
+            // Закрываем меню при клике на ссылку (на телефонах)
+            const links = sidebar.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                    // Сохраняем позицию перед уходом со страницы
+                    saveSidebarScroll();
+                });
+            });
+            
+            // Сохраняем позицию при скролле сайдбара
+            sidebar.addEventListener('scroll', function() {
+                saveSidebarScroll();
+            });
+        }
+        
+        // Восстанавливаем позицию после загрузки страницы
+        // Используем setTimeout, чтобы дать браузеру время отрисовать сайдбар
+        window.addEventListener('load', function() {
+            restoreSidebarScroll();
+        });
+        
+        // Также сохраняем позицию перед закрытием/перезагрузкой страницы
+        window.addEventListener('beforeunload', function() {
+            saveSidebarScroll();
+        });
+    </script>
+    <script src="/link-checker.js" defer></script>
+    <script src="/theme.js"></script>
+</body>
+</html>

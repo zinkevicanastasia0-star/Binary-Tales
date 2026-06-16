@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% if page %}
+            {{ page.title }} | {{ config.title }}
+        {% elif section %}
+            {{ section.title }} | {{ config.title }}
+        {% else %}
+            {{ config.title }}
+        {% endif %}
+    </title>
+
+    <link rel="icon" type="image/svg+xml" href="/img/Vector.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/Vector.png">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Боковое меню (сайдбар) -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <a href="/">
+                <img class="sidebar-logo" src="/img/BinaryTales.svg" width="210" height="48" alt="Логотип">
+            </a>
+            <p class="sidebar-description">Рекомендации по безопасности</p>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/howto">Инструкция</a></li>
+                <li><a href="/attacks">Виды атак</a></li>
+                <li class="nav-divider">Социальные сети</li>
+                <li><a href="/social/vk">ВКонтакте</a></li>
+                <li><a href="/social/tg">Telegram</a></li>
+                <li><a href="/social/ok">Одноклассники</a></li>
+                <li class="nav-divider">Инструменты</li>
+                <li><a href="/checklist">Чек-лист</a></li>
+                <li><a href="/scam-chat">Тренажёр ответов</a></li>
+                <li><a href="/link-checker">Проверка ссылок</a></li>
+                <li><a href="/truth-or-myth">Правда или миф?</a></li>
+                <li><a href="/password">Генератор паролей</a></li>
+                <li><a href="/crisis">При взломе</a></li>
+            </ul>
+        </nav>
+
+        <img class="bubble" src="/img/bubbles.svg" width="250" height="235">
+        
+        <div class="sidebar-footer">
+            <p>Binary Tales</p>
+        </div>
+    </aside>
+
+    <!-- Основной контент -->
+    <main class="main-content">
+        <article class="content-wrapper">
+            <h1>Что делать при взломе?</h1>
+            <p class="checklist-description">
+                Если вы заметили подозрительные входы, странные сообщения от вашего имени или потеряли доступ 
+                к аккаунту, действуйте по шагам. Главное - не паниковать и не переходить по новым ссылкам из переписки.
+            </p>    
+            <section class="crisis-tool" aria-label="План действий при взломе">
+                <div class="crisis-alert">
+                    <strong>Сначала остановитесь</strong>
+                    <p>
+                        Не отправляйте коды, не переводите деньги 
+                        и не устанавливайте приложения по просьбе незнакомцев. 
+                        Все действия выполняйте только через официальный сайт 
+                        или приложение сервиса.
+                    </p>
+                </div>
+
+                <div class="crisis-summary">
+                    <div>
+                    <p class="crisis-kicker">Прогресс восстановления</p>
+                    <strong id="crisisScore">0 из 8</strong>
+                    </div>
+                    <div class="crisis-status crisis-status-low" id="crisisStatus">Нужна срочная защита</div>
+                </div>
+
+                <div class="crisis-progress" aria-hidden="true">
+                    <div class="crisis-progress-bar" id="crisisProgressBar"></div>
+                </div>
+
+                <form class="crisis-steps" id="crisisSteps">
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">1</span>
+                    <span>
+                        <strong>Смените пароль</strong>
+                        Поставьте новый уникальный пароль. Не используйте старые пароли с других сайтов.
+                    </span>
+                    </label>
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">2</span>
+                    <span>
+                        <strong>Завершите все сессии</strong>
+                        Выйдите со всех устройств, кроме своего. Это выбросит злоумышленника из аккаунта.
+                    </span>
+                    </label>
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">3</span>
+                    <span>
+                        <strong>Включите двухфакторную аутентификацию</strong>
+                        Добавьте второй фактор входа, чтобы одного пароля было недостаточно.
+                    </span>
+                    </label>
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">4</span>
+                    <span>
+                        <strong>Проверьте почту и телефон</strong>
+                        Убедитесь, что к аккаунту не добавлены чужие контакты для восстановления.
+                    </span>
+                    </label>
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">5</span>
+                    <span>
+                        <strong>Удалите подозрительные приложения</strong>
+                        Проверьте подключённые сервисы, ботов, расширения и доступы сторонних приложений.
+                    </span>
+                    </label>
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">6</span>
+                    <span>
+                        <strong>Предупредите друзей и родных</strong>
+                        Сообщите, что от вашего имени могли писать мошенники, просить деньги или отправлять ссылки.
+                    </span>
+                    </label>
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">7</span>
+                    <span>
+                        <strong>Обратитесь в поддержку</strong>
+                        Если доступа нет, используйте официальную форму восстановления аккаунта.
+                    </span>
+                    </label>
+                    <label class="crisis-step">
+                    <input type="checkbox">
+                    <span class="crisis-step-number">8</span>
+                    <span>
+                        <strong>Сохраните доказательства</strong>
+                        Сделайте скриншоты подозрительных сообщений, входов, переводов и переписок.
+                    </span>
+                    </label>
+
+                    <button type="button" class="crisis-reset" id="crisisReset">Сбросить шаги</button>
+                </form>
+
+                <div class="crisis-advice" id="crisisAdvice">
+                    Начните с пароля и завершения всех сессий: это быстрее всего закрывает доступ злоумышленнику.
+                </div>
+                </section>
+
+                <section class="crisis-branches" aria-label="Что делать в зависимости от доступа">
+                <div class="crisis-info-block">
+                    <h2>Если доступ есть</h2>
+                    <ul>
+                    <li>Смените пароль, обязательно на сложный и уникальный.</li>
+                    <li>Завершите все активные сеансы.</li>
+                    <li>Проверьте привязанные почту, телефон и резервные способы входа.</li>
+                    <li>Включите двухфакторную аутентификацию.</li>
+                    <li>роверьте все контактные данные на принадлежность вам.</li>
+                    </ul>
+                </div>
+
+                <div class="crisis-info-block">
+                    <h2>Если доступа нет</h2>
+                    <ul>
+                    <li>Не пользуйтесь ссылками из переписки — откройте сервис вручную.</li>
+                    <li>Перейдите в официальную форму восстановления аккаунта.</li>
+                    <li>Подготовьте почту, телефон и доказательства владения аккаунтом.</li>
+                    <li>Предупредите друзей и родных через другой канал связи.</li>
+                    <li>Попробуйте войти с помощью функции восстановления пароля.</li>
+                    </ul>
+                </div>
+                </section>
+
+            <section class="crisis-message-box" aria-label="Готовое предупреждение для друзей">
+                <h2>Сообщение для друзей и родных</h2>
+                <p id="crisisMessageText">Меня могли взломать. Не переходите по ссылкам и не переводите деньги, если вам писали от моего имени. Я восстанавливаю доступ и напишу позже.</p>
+                <button type="button" id="copyCrisisMessage">Скопировать текст</button>
+                <span id="copyCrisisStatus" aria-live="polite"></span>
+            </section>
+
+            <section class="crisis-tool">
+                <div class="crisis-alert">
+                    <p>
+                        Главное при взломе - не паниковать и быстро реагировать. 
+                        После восстановления доступа необходимо 
+                        усилить защиту аккаунта для предотвращения 
+                        повторения ситуации.
+                    </p>
+                </div>
+            </section>    
+        </article>
+    </main>
+
+    <!-- Кнопка для мобильной версии (открыть/закрыть меню) -->
+    <div class="floating-controls" aria-label="Быстрые действия">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
+            <img id="themeToggleIcon" src="/img/light-button.svg" width="36" height="36" alt="">
+        </button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Открыть меню">
+            <img id="menuToggleIcon" src="/img/menu-light.svg" width="24" height="24" alt="Меню">
+        </button>
+    </div>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах + сохранение позиции скролла
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const STORAGE_KEY_SCROLL = 'sidebar-scroll-position';
+        
+        // Функция сохранения позиции скролла
+        function saveSidebarScroll() {
+            if (sidebar) {
+                localStorage.setItem(STORAGE_KEY_SCROLL, sidebar.scrollTop);
+            }
+        }
+        
+        // Функция восстановления позиции скролла
+        function restoreSidebarScroll() {
+            if (sidebar) {
+                const savedPosition = localStorage.getItem(STORAGE_KEY_SCROLL);
+                if (savedPosition !== null) {
+                    sidebar.scrollTop = parseInt(savedPosition, 10);
+                }
+            }
+        }
+        
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+            
+            // Закрываем меню при клике на ссылку (на телефонах)
+            const links = sidebar.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                    // Сохраняем позицию перед уходом со страницы
+                    saveSidebarScroll();
+                });
+            });
+            
+            // Сохраняем позицию при скролле сайдбара
+            sidebar.addEventListener('scroll', function() {
+                saveSidebarScroll();
+            });
+        }
+        
+        // Восстанавливаем позицию после загрузки страницы
+        // Используем setTimeout, чтобы дать браузеру время отрисовать сайдбар
+        window.addEventListener('load', function() {
+            restoreSidebarScroll();
+        });
+        
+        // Также сохраняем позицию перед закрытием/перезагрузкой страницы
+        window.addEventListener('beforeunload', function() {
+            saveSidebarScroll();
+        });
+    </script>
+    <script src="/crisis.js" defer></script>
+    <script src="/theme.js"></script>
+</body>
+</html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Генератор паролей | Безопасный Аккаунт </title>
+
+    <link rel="icon" type="image/svg+xml" href="/img/Vector.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/Vector.png">
+
+    <link rel="stylesheet" href="/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- Боковое меню (сайдбар) -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="/">
+          <img class="sidebar-logo" src="/img/BinaryTales.svg" width="210" height="48" alt="Логотип">
+        </a>
+        <p class="sidebar-description">Рекомендации по безопасности</p>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li>
+            <a href="/">Главная</a>
+          </li>
+          <li>
+            <a href="/howto">Инструкция</a>
+          </li>
+          <li>
+            <a href="/attacks">Виды атак</a>
+          </li>
+          <li class="nav-divider">Социальные сети</li>
+          <li>
+            <a href="/social/vk">ВКонтакте</a>
+          </li>
+          <li>
+            <a href="/social/tg">Telegram</a>
+          </li>
+          <li>
+            <a href="/social/ok">Одноклассники</a>
+          </li>
+          <li class="nav-divider">Инструменты</li>
+          <li>
+            <a href="/checklist">Чек-лист</a>
+          </li>
+          <li>
+            <a href="/scam-chat">Тренажёр ответов</a>
+          </li>
+          <li>
+            <a href="/link-checker">Проверка ссылок</a>
+          </li>
+          <li>
+            <a href="/truth-or-myth">Правда или миф?</a>
+          </li>
+          <li>
+            <a href="/password">Генератор паролей</a>
+          </li>
+          <li>
+            <a href="/crisis">При взломе</a>
+          </li>
+        </ul>
+      </nav>
+      <img class="bubble" src="/img/bubbles.svg" width="250" height="235">
+      <div class="sidebar-footer">
+        <p>Binary Tales</p>
+      </div>
+    </aside>
+    <!-- Основной контент -->
+    <main class="main-content">
+      <article class="content-wrapper">
+        <h1 id="generator-parolei">Генератор паролей</h1>
+        <div>
+          <div style="display:flex; gap:8px; margin-bottom:10px;">
+            <input id="passwordResult" readonly style="flex:1; padding:8px; border:1px solid #ccc; border-radius:4px;" placeholder="Пароль">
+			<button id="copyBtn" style="padding:8px 12px; border:none; border-radius:4px; cursor:pointer;">Копировать</button>
+            <button id="generateBtn" style="padding:8px 12px; background:#007bff; color:#fff; border:none; border-radius:4px; cursor:pointer;" onclick="generatePassword()">Создать</button>
+          </div>
+		  <div style="margin-bottom: 15px; font-size: 14px;">
+            <span>Сложность:</span> 
+            <span id="strengthText" style="font-weight: bold; color: #dc3545;">Слабый</span>
+            <div style="display: flex; gap: 4px; margin-top: 6px; height: 5px;">
+              <div id="bar1" style="flex: 1; background: #e0e0e0; border-radius: 2px; transition: background 0.2s;"></div>
+              <div id="bar2" style="flex: 1; background: #e0e0e0; border-radius: 2px; transition: background 0.2s;"></div>
+              <div id="bar3" style="flex: 1; background: #e0e0e0; border-radius: 2px; transition: background 0.2s;"></div>
+              <div id="bar4" style="flex: 1; background: #e0e0e0; border-radius: 2px; transition: background 0.2s;"></div>
+            </div>
+          </div>
+          <details style="cursor:pointer; user-select:none;">
+            <summary style="color:#007bff; outline:none; font-weight:bold;">Настройки генератора</summary>
+            <div style="display:flex; flex-direction:column; gap:12px; padding-top:10px; cursor:default;">
+			<div style="display:flex; justify-content:space-between;">
+			  <span>Длина:</span>
+			  <input id="passwordLength" type="range" min="8" max="32" value="12" style="width: 100%;cursor:pointer;margin: 0px 10px;">
+			  <strong id="lengthValue">12</strong>
+			</div>
+            <label style="display:flex; align-items:center; gap:6px;">
+			  <input id="includeUppercase" type="checkbox" checked> Прописные буквы (A-Z) </label>
+            <label style="display:flex; align-items:center; gap:6px;">
+              <input id="includeSymbols" type="checkbox" checked> Специальные символы (!@#...) </label>
+            </div>
+          </details>
+        </div>
+      </article>
+    </main>
+
+    <!-- Кнопка для mobile версии -->
+    <div class="floating-controls" aria-label="Быстрые действия">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
+            <img id="themeToggleIcon" src="/img/light-button.svg" width="36" height="36" alt="">
+        </button>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle" type="button" aria-label="Открыть меню">
+            <img id="menuToggleIcon" src="/img/menu-light.svg" width="24" height="24" alt="Меню">
+        </button>
+    </div>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах + сохранение позиции скролла
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+        const STORAGE_KEY_SCROLL = 'sidebar-scroll-position';
+        
+        // Функция сохранения позиции скролла
+        function saveSidebarScroll() {
+            if (sidebar) {
+                localStorage.setItem(STORAGE_KEY_SCROLL, sidebar.scrollTop);
+            }
+        }
+        
+        // Функция восстановления позиции скролла
+        function restoreSidebarScroll() {
+            if (sidebar) {
+                const savedPosition = localStorage.getItem(STORAGE_KEY_SCROLL);
+                if (savedPosition !== null) {
+                    sidebar.scrollTop = parseInt(savedPosition, 10);
+                }
+            }
+        }
+        
+        if (toggleBtn && sidebar) {
+            toggleBtn.addEventListener('click', function() {
+                sidebar.classList.toggle('open');
+            });
+            
+            // Закрываем меню при клике на ссылку (на телефонах)
+            const links = sidebar.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (window.innerWidth <= 768) {
+                        sidebar.classList.remove('open');
+                    }
+                    // Сохраняем позицию перед уходом со страницы
+                    saveSidebarScroll();
+                });
+            });
+            
+            // Сохраняем позицию при скролле сайдбара
+            sidebar.addEventListener('scroll', function() {
+                saveSidebarScroll();
+            });
+        }
+        
+        // Восстанавливаем позицию после загрузки страницы
+        // Используем setTimeout, чтобы дать браузеру время отрисовать сайдбар
+        window.addEventListener('load', function() {
+            restoreSidebarScroll();
+        });
+        
+        // Также сохраняем позицию перед закрытием/перезагрузкой страницы
+        window.addEventListener('beforeunload', function() {
+            saveSidebarScroll();
+        });
+    </script>
+
+      <script>	  
+        const lengthSlider = document.getElementById('passwordLength');
+        const uppercaseCheckbox = document.getElementById('includeUppercase');
+        const symbolsCheckbox = document.getElementById('includeSymbols');
+      const passwordResult = document.getElementById('passwordResult');
+      
+      var copyButtonAnimTimer = null;
+      const copyButton = document.getElementById('copyBtn');
+      
+      function copyPassword() {
+        navigator.clipboard.writeText(passwordResult.value).then(() => {
+      copyButton.textContent = "Скопировано";
+      if (copyButtonAnimTimer !== null) clearTimeout(copyButtonAnimTimer);
+      copyButtonAnimTimer = setTimeout(() => { copyButton.textContent = "Копировать"; copyButtonAnimTimer = null;}, 1000);
+      }).catch(err => console.error(err))
+      
+      }
+      
+      function checkStrength(password) {
+          const strengthText = document.getElementById('strengthText');
+          const bars = [
+            document.getElementById('bar1'),
+            document.getElementById('bar2'),
+            document.getElementById('bar3'),
+            document.getElementById('bar4')
+          ];
+
+          // Сбрасываем цвета всех полосок на серый
+          bars.forEach(bar => bar.style.backgroundColor = '#e0e0e0');
+
+          let score = 0;
+
+          // Критерии оценки (накапливаем баллы)
+          if (password.length >= 10) score++;
+          if (password.length >= 16) score++;
+          if (password.length >= 22) score++;
+          if (/[A-Z]/.test(password)) score++;
+          if (/[0-9]/.test(password)) score++;
+          if (/[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password)) score++;
+
+          // Гарантируем минимальный балл, если пароль вообще есть
+          if (password.length > 0 && score === 0) score = 1;
+      
+      score = Math.min(4, score);
+
+          // Раскрашиваем полоски и меняем текст в зависимости от баллов
+          if (score === 1) {
+            strengthText.textContent = "Слабый";
+            strengthText.style.color = "#dc3545";
+            bars[0].style.backgroundColor = "#dc3545";
+          } else if (score === 2) {
+            strengthText.textContent = "Средний";
+            strengthText.style.color = "#fd7e14";
+            bars[0].style.backgroundColor = "#fd7e14";
+            bars[1].style.backgroundColor = "#fd7e14";
+          } else if (score === 3) {
+            strengthText.textContent = "Надежный";
+            strengthText.style.color = "#ffc107";
+            bars[0].style.backgroundColor = "#ffc107";
+            bars[1].style.backgroundColor = "#ffc107";
+            bars[2].style.backgroundColor = "#ffc107";
+          } else if (score === 4) {
+            strengthText.textContent = "Очень надежный";
+            strengthText.style.color = "#198754";
+            bars.forEach(bar => bar.style.backgroundColor = "#198754");
+          }
+        }
+      
+        function generatePassword() {
+          const lowercaseChars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+          const uppercaseChars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+          const symbolChars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
+          
+          let allowedCharacters = lowercaseChars;
+          if (uppercaseCheckbox.checked) {
+            allowedCharacters += uppercaseChars;
+          }
+          if (symbolsCheckbox.checked) {
+            allowedCharacters += symbolChars;
+          }
+          const passwordLength = parseInt(lengthSlider.value, 10);
+          let generatedPassword = '';
+      
+          for (let i = 0; i < passwordLength; i++) {
+            const randomIndex = Math.floor(Math.random() * allowedCharacters.length);
+            generatedPassword += allowedCharacters[randomIndex];
+          }
+          passwordResult.value = generatedPassword;
+      checkStrength(generatedPassword);
+        }
+        lengthSlider.addEventListener('input', function() {
+          document.getElementById('lengthValue').textContent = lengthSlider.value;
+          generatePassword();
+        });
+        uppercaseCheckbox.addEventListener('change', function() {
+          generatePassword();
+        });
+        symbolsCheckbox.addEventListener('change', function() {
+          generatePassword();
+        });
+        copyButton.addEventListener('click', function() {
+          copyPassword();
+        });
+
+        generatePassword();
+      </script>
+    <script src="/theme.js"></script>
+  </body>
+</html>

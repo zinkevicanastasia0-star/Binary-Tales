@@ -8,6 +8,7 @@
             Социальные сети | Безопасный Аккаунт
         
     </title>
+<<<<<<< HEAD
 
     <link rel="icon" type="image/svg+xml" href="/img/Vector.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/Vector.png">
@@ -16,14 +17,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+=======
+    <link rel="stylesheet" href="/style.css">
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
 </head>
 <body>
     <!-- Боковое меню (сайдбар) -->
     <aside class="sidebar">
         <div class="sidebar-header">
+<<<<<<< HEAD
             <a href="/">
                 <img class="sidebar-logo" src="/img/BinaryTales.svg" width="210" height="48" alt="Логотип">
             </a>
+=======
+            <img src="img/BinaryTales.svg" width="202" height="40">
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
             <p class="sidebar-description">Рекомендации по безопасности</p>
         </div>
         
@@ -33,6 +41,7 @@
                 <li><a href="/howto">Инструкция</a></li>
                 <li><a href="/attacks">Виды атак</a></li>
                 <li class="nav-divider">Социальные сети</li>
+<<<<<<< HEAD
                 <li><a href="/social/vk">ВКонтакте</a></li>
                 <li><a href="/social/tg">Telegram</a></li>
                 <li><a href="/social/ok">Одноклассники</a></li>
@@ -47,6 +56,18 @@
         </nav>
 
         <img class="bubble" src="/img/bubbles.svg" width="250" height="235">
+=======
+                <li><a href="/social/vk">ВКонтакте -</a></li>
+                <li><a href="/social/telegram">Telegram</a></li>
+                <li><a href="/social/ok">Одноклассники</a></li>
+                <li class="nav-divider">Инструменты</li>
+                <li><a href="/checklist">Чек-лист</a></li>
+                <li><a href="/password-generator">Генератор паролей</a></li>
+                <li><a href="/infographic">Инфографика</a></li>
+                <li><a href="/crisis">При взломе</a></li>
+            </ul>
+        </nav>
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
         
         <div class="sidebar-footer">
             <p>Binary Tales</p>
@@ -61,7 +82,11 @@
 <p>Выберите социальную сеть, чтобы перейти к инструкции:</p>
 <ul>
 <li><a href="/social/vk">ВКонтакте</a></li>
+<<<<<<< HEAD
 <li><a href="/social/tg">Telegram</a></li>
+=======
+<li><a href="/social/telegram">Telegram</a></li>
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
 <li><a href="/social/ok">Одноклассники</a></li>
 </ul>
 
@@ -70,6 +95,7 @@
     </main>
 
     <!-- Кнопка для мобильной версии (открыть/закрыть меню) -->
+<<<<<<< HEAD
     <div class="floating-controls" aria-label="Быстрые действия">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
             <img id="themeToggleIcon" src="/img/light-button.svg" width="36" height="36" alt="">
@@ -101,6 +127,14 @@
                 }
             }
         }
+=======
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
         
         if (toggleBtn && sidebar) {
             toggleBtn.addEventListener('click', function() {
@@ -114,6 +148,7 @@
                     if (window.innerWidth <= 768) {
                         sidebar.classList.remove('open');
                     }
+<<<<<<< HEAD
                     // Сохраняем позицию перед уходом со страницы
                     saveSidebarScroll();
                 });
@@ -139,3 +174,11 @@
     <script src="/theme.js"></script>
 </body>
 </html>
+=======
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882

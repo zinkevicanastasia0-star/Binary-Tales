@@ -16,15 +16,22 @@
         <loc>/howto/</loc>
     </url>
     <url>
+<<<<<<< HEAD
         <loc>/link-checker/</loc>
+=======
+        <loc>/infographic/</loc>
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
     </url>
     <url>
         <loc>/password/</loc>
     </url>
     <url>
+<<<<<<< HEAD
         <loc>/scam-chat/</loc>
     </url>
     <url>
+=======
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
         <loc>/social/</loc>
     </url>
     <url>
@@ -36,7 +43,10 @@
     <url>
         <loc>/social/vk/</loc>
     </url>
+<<<<<<< HEAD
     <url>
         <loc>/truth-or-myth/</loc>
     </url>
+=======
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
 </urlset>

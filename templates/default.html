@@ -12,10 +12,13 @@
             {{ config.title }}
         {% endif %}
     </title>
+<<<<<<< HEAD
 
     <link rel="icon" type="image/svg+xml" href="/img/Vector.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/img/Vector.png">
 
+=======
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
     <link rel="stylesheet" href="/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -42,10 +45,15 @@
                 <li><a href="/social/ok">Одноклассники</a></li>
                 <li class="nav-divider">Инструменты</li>
                 <li><a href="/checklist">Чек-лист</a></li>
+<<<<<<< HEAD
                 <li><a href="/scam-chat">Тренажёр ответов</a></li>
                 <li><a href="/link-checker">Проверка ссылок</a></li>
                 <li><a href="/truth-or-myth">Правда или миф?</a></li>
                 <li><a href="/password">Генератор паролей</a></li>
+=======
+                <li><a href="/password">Генератор паролей</a></li>
+                <li><a href="/infographic">Инфографика</a></li>
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
                 <li><a href="/crisis">При взломе</a></li>
             </ul>
         </nav>
@@ -71,6 +79,7 @@
     </main>
 
     <!-- Кнопка для мобильной версии (открыть/закрыть меню) -->
+<<<<<<< HEAD
     <div class="floating-controls" aria-label="Быстрые действия">
         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Переключить тему" aria-pressed="false">
             <img id="themeToggleIcon" src="/img/light-button.svg" width="36" height="36" alt="">
@@ -102,6 +111,14 @@
                 }
             }
         }
+=======
+    <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+
+    <script>
+        // Простой скрипт для открытия/закрытия меню на телефонах
+        const toggleBtn = document.getElementById('mobileMenuToggle');
+        const sidebar = document.querySelector('.sidebar');
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
         
         if (toggleBtn && sidebar) {
             toggleBtn.addEventListener('click', function() {
@@ -115,6 +132,7 @@
                     if (window.innerWidth <= 768) {
                         sidebar.classList.remove('open');
                     }
+<<<<<<< HEAD
                     // Сохраняем позицию перед уходом со страницы
                     saveSidebarScroll();
                 });
@@ -140,3 +158,11 @@
     <script src="/theme.js"></script>
 </body>
 </html>
+=======
+                });
+            });
+        }
+    </script>
+</body>
+</html>
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882

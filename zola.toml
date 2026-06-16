@@ -9,7 +9,10 @@ compile_sass = true
 build_search_index = true
 minify_html = false
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
 # ВСЕ ПОЛЬЗОВАТЕЛЬСКИЕ НАСТРОЙКИ — ТОЛЬКО ВНУТРИ [extra]
 [extra]
 
@@ -20,6 +23,7 @@ menu_items = [
     { name = "Виды атак", url = "/attacks" },
     { name = "Соцсети", children = [
         { name = "ВКонтакте", url = "/social/vk" },
+<<<<<<< HEAD
         { name = "Telegram", url = "/social/tg" },
         { name = "Одноклассники", url = "/social/ok" },
     ]},
@@ -30,3 +34,13 @@ menu_items = [
     { name = "Генератор паролей", url = "/password" },
     { name = "При взломе", url = "/crisis" },
 ]
+=======
+        { name = "Telegram", url = "/social/telegram" },
+        { name = "Одноклассники", url = "/social/ok" },
+    ]},
+    { name = "Чек-лист", url = "/checklist" },
+    { name = "Инфографика", url = "/infographic" },
+    { name = "Генератор паролей", url = "/password-generator" },
+    { name = "При взломе", url = "/crisis" },
+]
+>>>>>>> 78ffc22293c2dadceb59b3cd07ecde3f68c65882
